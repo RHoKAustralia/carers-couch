@@ -23,7 +23,6 @@ class CreateSMEProfilesTable extends Migration
             $table->string('motivationForJoning');	
             $table->boolean('privaceSetting');	
             $table->timestamps();
-           // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
