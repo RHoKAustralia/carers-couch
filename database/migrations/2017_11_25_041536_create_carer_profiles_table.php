@@ -15,6 +15,12 @@ class CreateCarerProfilesTable extends Migration
     {
         Schema::create('carer_profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('aeYouCurrentlyCaring');
+            $table->string('hobbiesAndInterests');	
+            $table->string('sinceWhenAreYouCaring');
+            $table->integer('howManyPeopleDoYouCareFor');	
+            $table->string('whatIllnessAreFacedWith');	
+            $table->boolean('privaceSetting');	
             $table->timestamps();
         });
     }

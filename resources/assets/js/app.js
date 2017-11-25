@@ -7,6 +7,9 @@
 
 require('./bootstrap');
 
+import VueChatScroll from 'vue-chat-scroll'
+import VueTimeago from 'vue-timeago';
+
 window.Vue = require('vue');
 
 /**
@@ -15,8 +18,22 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.use(VueChatScroll);
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('chat-room' , require('./components/laravel-video-chat/ChatRoom.vue'));
+Vue.component('group-chat-room', require('./components/laravel-video-chat/GroupChatRoom.vue'));
+Vue.component('video-section' , require('./components/laravel-video-chat/VideoSection.vue'));
+Vue.use(VueTimeago, {
+    name: 'timeago', // component name, `timeago` by default
+    locale: 'en-US',
+    locales: {
+        // you will need json-loader in webpack 1
+        'en-US': require('vue-timeago/locales/en-US.json')
+    }
+})
 
 const app = new Vue({
     el: '#app'
 });
+
+
