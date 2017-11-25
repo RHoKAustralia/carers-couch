@@ -15,7 +15,15 @@ class CreateSMEProfilesTable extends Migration
     {
         Schema::create('s_m_e_profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('qualifications');	
+            $table->string('experience');	
+            $table->string('specialLicenses');	
+            $table->string('insurance');	
+            $table->string('competenceFocus');	
+            $table->string('motivationForJoning');	
+            $table->boolean('privaceSetting');	
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
