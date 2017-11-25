@@ -17,14 +17,46 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 
 /* blog */
 //Route::get('/',['as' => 'home', 'uses' => 'PostController@index']);
+
+Route::get('/blog', 'PostController@index')->name('blog');
+
+Route::get('/chat', 'ChatController@index')->name('chathome');
+
+
+Route::get('new-post','PostController@create')->middleware('auth');
+
+// save new post
+Route::post('new-post','PostController@store')->middleware('auth');
+
+// edit post form
+Route::get('edit/{slug}','PostController@edit')->middleware('auth');
+
+// update post
+Route::post('update','PostController@update')->middleware('auth');
+
+// delete post
+Route::get('delete/{id}','PostController@destroy')->middleware('auth');
+
+// display user's all posts
+Route::get('my-all-posts','UserController@user_posts_all')->middleware('auth');
+
+// display user's drafts
+Route::get('my-drafts','UserController@user_posts_draft')->middleware('auth');
+
+
+// add comment
+Route::post('comment/add','CommentController@store')->middleware('auth');
+
+// delete comment
+Route::post('comment/delete/{id}','CommentController@distroy')->middleware('auth');
+
 /*
-Route::get('/blog',['as' => 'blog', 'uses' => 'PostController@index']);
 Route::group(['middleware' => ['auth']], function()
 {
 	// show new post form
@@ -56,6 +88,9 @@ Route::group(['middleware' => ['auth']], function()
 	Route::post('comment/delete/{id}','CommentController@distroy');
 	
 });
+
+*/
+
 //users profile
 Route::get('user/{id}','UserController@profile')->where('id', '[0-9]+');
 // display list of posts
@@ -63,7 +98,6 @@ Route::get('user/{id}/posts','UserController@user_posts')->where('id', '[0-9]+')
 // display single post
 Route::get('/{slug}',['as' => 'post', 'uses' => 'PostController@show'])->where('slug', '[A-Za-z0-9-_]+');
 
-*/
 /* chat */
 
 Route::get('/chat', 'ChatController@index')->name('chathome');

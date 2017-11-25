@@ -22,7 +22,7 @@ class PostController extends Controller {
 	{
 		$posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5);
 		$title = 'Latest Posts';
-		return view('home')->withPosts($posts)->withTitle($title);
+		return view('posts.home')->withPosts($posts)->withTitle($title);
 	}
 
 	/**
