@@ -18,7 +18,7 @@ class ChatsTableSeeder extends Seeder
         //
         $conversation = new Conversation();
         $conversation->first_user_id = 1;
-        $conversation->second_user_id = 2;
+        $conversation->second_user_id = 3;
         $conversation->save();
 
         $conversation->messages()->create([
@@ -27,8 +27,8 @@ class ChatsTableSeeder extends Seeder
         ]);
 
         $conversation2 = new Conversation();
-        $conversation2->first_user_id = 1;
-        $conversation2->second_user_id = 3;
+        $conversation2->first_user_id = 2;
+        $conversation2->second_user_id = 4;
         $conversation2->save();
 
         $conversation2->messages()->create([
@@ -37,7 +37,7 @@ class ChatsTableSeeder extends Seeder
         ]);
 
         $group = new GroupConversation();
-        $group->name = 'Test';
+        $group->name = 'Anyone help me ?';
         $group->save();
 
         $group->users()->attach([ 1,2,3 ]);

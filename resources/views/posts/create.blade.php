@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.member')
 
 @section('title')
 Add New Post
