@@ -22,7 +22,6 @@ class CreateCarerProfilesTable extends Migration
             $table->string('whatIllnessAreFacedWith');	
             $table->boolean('privaceSetting');	
             $table->timestamps();
-            //$table->foreign('user_id')->references('id')->on('users');
 
         });
     }
