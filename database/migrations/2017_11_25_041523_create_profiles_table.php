@@ -25,7 +25,7 @@ class CreateProfilesTable extends Migration
             $table->string('illnaess');
             $table->string('profileType');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+           // $table->foreign('user_id')->references('id')->on('users');
 
         });
     }
